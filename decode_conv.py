@@ -31,6 +31,22 @@ def file_lines(file_path):
             return lines
             lines.append('')
     return lines
+    
+def file_lines1(file_path):
+    with open(file_path, 'rb') as fp:
+        b = fp.read()
+    content = b.decode('utf8', 'ignore')
+    lines = []
+    for line in tqdm(content.split('\n')):
+        #print(line)
+        try:
+            line = line.replace('\n', '').strip()
+            lines.append(line)
+        except:
+            print(line)
+            return lines
+            lines.append('')
+    return lines
 
 def contain_chinese(s):
     if re.findall('[\u4e00-\u9fa5]+', s):
@@ -58,8 +74,8 @@ def insert_if(question, answer, cur, input_len=500, output_len=500):
     return 0
 
 def main(file_path):
-    lines = file_lines(file_path)
-
+    lines = file_lines1(file_path)
+    
     print('一共读取 %d 行数据' % len(lines))
 
     db = 'db/conversation.db'

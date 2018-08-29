@@ -167,7 +167,8 @@ class S2SModel(object):
         # self.saver = tf.train.Saver(tf.all_variables())
         self.saver = tf.train.Saver(
             tf.all_variables(),
-            write_version=tf.train.SaverDef.V2
+            write_version=tf.train.SaverDef.V2,
+            max_to_keep = 0
         )
 
     def step(

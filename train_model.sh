@@ -18,8 +18,8 @@ then
 fi
 
 python3 s2s.py \
---size 1024 \
---num_layers 2 \
+--size 512 \
+--num_layers 1 \
 --num_epoch 5 \
 --batch_size 64 \
 --num_per_epoch 500000 \
